@@ -1,8 +1,9 @@
 // 编译 javac -encoding utf-8  BookReview.java
 // 执行 java Test
-// 使用前请将文件名改为Student.java
+// 使用前请将文件名改为BookReview.java
 // Author: 何睿
-// 2018-04-17
+// if you find any mistake, please contact super76rui@icloud.com
+// 2018-04-20
 
 import java.util. * ; 
 
