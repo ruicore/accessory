@@ -9,9 +9,9 @@ public class StudentTest
 {
     public static void main(String[] args)
     {
-        Student A = new Student("489999", "何睿", "信管"); 
+        Student A = new Student("489999", "test", "信管"); 
         A.setTuition(4522); 
-        Systems.out.println(A.toString()); 
+        System.out.println(A.toString()); 
     }
 }
 
