@@ -1,0 +1,53 @@
+/// <summary>
+    /// 添加订单
+    /// </summary>
+    /// <param name="context"></param>
+    public void AddOrder(HttpContext context)
+    {
+        string DDfa = HttpContext.Current.Request["DDfa"];		//订单支付方法
+        string DDyu = HttpContext.Current.Request["DDyu"];		//订单金额
+        string Des = HttpContext.Current.Request["Des"];		//订单说明
+        string insertsql;
+        strcon.Open(); 											//打开数据连接
+        try
+        {
+            insertsql = "insert into tb_order(username,pay,carry,orderdate,enforce,bz) 
+values('" + HttpContext.Current.Session["wo"].ToString() + "','" + DDfa + "','" + DDyu 
++ "','" + System.DateTime.Now + "','" + 0 + "','" + Des + "')";//添加订单的SQL语句
+            SqlCommand commz = strcon.CreateCommand();
+            commz.CommandText = insertsql; 						//插入主表信息
+            commz.ExecuteNonQuery();							//执行sql语句
+            Int64 orderid = 0;
+            SqlDataAdapter adamax = new SqlDataAdapter("select max(orderid) as ordmax 
+from tb_order", strcon); 										//执行sql语句
+            DataSet maxds = new DataSet();
+            adamax.Fill(maxds); 								//获取查询到的数据
+            DataRow[] rows = maxds.Tables[0].Select();
+            foreach (DataRow row in rows)
+            { orderid = Convert.ToInt64(row["ordmax"]); }
+            DataTable dt = Class2.godset.Tables[0];
+            //dt.Columns.Add("count");
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr["count"] = GetCount(dr["ID"].ToString());
+                int goodsid = int.Parse(dr["ID"].ToString());
+              Double price = Double.Parse(dr["nowPrice"].ToString());//获取查询到的单价
+                int number = int.Parse(dr["count"].ToString());
+                //查询用的sql语句
+                insertsql = "insert into tb_order_detail (orderid,goodsid,price,number) 
+values('" + orderid + "','" + goodsid + "','" + price + "','" + number + "')";
+            commz.CommandText = insertsql;
+            commz.ExecuteNonQuery();							//明细表信息插入
+        }
+    }
+    catch
+    {
+    }
+    finally
+    {
+        Class2.godset.Clear();     								//清空数据集
+        HttpContext.Current.Session["bus"] = null;
+        //Response.Redirect("shopcar.aspx");
+        context.Response.Write("{\"status\":\"0\"}");
+    }
+}

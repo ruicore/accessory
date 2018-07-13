@@ -1,0 +1,51 @@
+<div style="background-image: url(image/KCM/NET电子商务网站首页_05.gif); width: 790px; 
+height: 172px;">
+    <div style="width: 100%; height: 20px;">
+<!—显示欢迎语句-->
+         <div style="color: #fff; width: 260px; float: left; margin-top: 3px;">HI，欢
+迎来到 DIANZISHANGMU 电子商务中心</div>
+<!—显示退出功能-->
+         <div id="outBtn" style="color: #fff; width: 60px; float: right; margin-top: 3px; 
+cursor: pointer;" onclick="Out()">退出</div>
+<!—显示登录功能-->
+         <div id="loginBtn" style="color: #fff; width: 60px; float: right; margin-top: 
+3px; cursor: pointer;" onclick="ClickLogin()">登录</div>
+<!—显示用户名-->
+         <div id="userNameBtn" style="color: #fff; width: 60px; float: right; margin-top: 
+3px; cursor: pointer;" onclick="User()">用户名</div>
+<!—显示注册-->
+         <div id="regBtn" style="color: #fff; width: 60px; float: right; margin-top: 3px; 
+cursor: pointer;" onclick="ClickReg()">注册</div>
+<!—显示我的订单-->
+         <div id="dingdanBtn" style="color: #fff; width: 60px; float: right; margin-top: 
+3px; cursor: pointer;" onclick="ClickOrder()">我的订单</div>
+<!—显示购物车-->
+         <div id="carBtn" style="color: #fff; width: 60px; float: right; margin-top: 3px; 
+cursor: pointer;" onclick="shoppC()">购物车</div>
+<!—显示客服中心-->
+         <div id="kefuBtn" style="color: #fff; width: 60px; float: right; margin-top: 
+3px; cursor: pointer;" onclick="ceneter()">客服中心</div>
+    </div>
+         <div style="width: 100%; height: 50px;">
+          <div style="width: 220px; height: 50px; float: left; margin-top: 60px; 
+margin-left: 45px;">
+          <div style="color: #fff; font-size: 20px; font-weight: 
+900;">DIANZISHANGWU</div>
+          <div style="color: #fff; font-size: 20px; font-weight: 900;">电子商务中心</div>
+        </div>
+<!—显示查询文本框-->
+        <div style="width: 500px; height: 50px; float: right; margin-top: 60px;">
+            <input id="strSelect" type="text" style="height: 40px; width: 320px; float: 
+left; font-size: 15px;" placeholder="请输入搜索信息：例如“电视，彩电，洗衣机”" />
+            <input type="button" value="搜索" style="float: left; height: 46px; width: 
+100px; border: none; font-size: 18px; color: white; background-color: rgb(255, 106, 0)" 
+onclick="Clickselect()" />
+        </div>
+        <div style="width: 500px; height: 20px; float: right; margin-top: 0px;">
+            <div style="float: left; color: white; width: 110px;">辉伟等离子</div>
+            <div style="float: left; color: white; width: 110px;">新书推荐</div>
+            <div style="float: left; color: white; width: 110px;">特价五折</div>
+            <div style="float: left; color: white; width: 110px;">电视</div>
+        </div>
+    </div>
+</div>

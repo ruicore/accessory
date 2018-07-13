@@ -1,0 +1,41 @@
+function AddAdr() {
+       var Names = $('#Names').val();					//收货人姓名
+       var adr = $('#adr').val();						//收货人地址
+       var Des = $('#Des').val();						//详细地址
+       var phone = $('#phone').val();					//手机
+       var mobil = $('#mobil').val();					//电话
+       var email = $('#email').val();					//邮箱
+       var bieming = $('#bieming').val();				//备注
+       var userName = $('#userName').val();				//用户名
+       if (Names == '') {
+           alert('收货人不能为空'); 						//弹出提示
+           return;
+       }
+       if (Des == '') {
+           alert('详细地址不能为空'); 					//弹出提示
+           return;
+       }
+       if (phone == '') {
+           alert('手机号不能为空'); 						//弹出提示
+           return;
+       }
+       //向后台传递的参数
+       var pd = { "t": "AddAdr", "Names": Names, "adr": adr, "Des": Des, "phone": phone, 
+"mobil": mobil, "email": email, "bieming": bieming, "userName": userName };
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                closeCeng();								//关闭页面
+                GetAdr();								//获取地址信息
+            }
+            else {
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

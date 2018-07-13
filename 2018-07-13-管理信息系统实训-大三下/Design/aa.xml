@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+  <NewDataSet>
+    <Table diffgr:id="Table5" msdata:rowOrder="0">
+      <ID>51</ID>
+      <typeID>1</typeID>
+      <goodsName>4G手机</goodsName>
+      <introduce>华为畅享5s全网通4G手机畅享5s正品</introduce>
+      <price>999</price>
+      <nowPrice>1000</nowPrice>
+      <picture>goodimg/51.jpg</picture>
+      <INTime>2016-10-17T10:19:25+08:00</INTime>
+      <newGoods>1</newGoods>
+      <count />
+    </Table>
+    <Table diffgr:id="Table6" msdata:rowOrder="1">
+      <ID>14</ID>
+      <typeID>24</typeID>
+      <goodsName>38度特酒</goodsName>
+      <introduce>四特酒口感好、活血强身。</introduce>
+      <price>24</price>
+      <nowPrice>24</nowPrice>
+      <picture>goodimg/14.jpg</picture>
+      <INTime>2006-01-17T11:03:51.947+08:00</INTime>
+      <newGoods>1</newGoods>
+      <count />
+    </Table>
+  </NewDataSet>
+</diffgr:diffgram>

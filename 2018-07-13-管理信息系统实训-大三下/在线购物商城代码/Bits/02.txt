@@ -1,0 +1,24 @@
+<div style="width: 420px; height: 270px; float: left;">
+         <!--Í¼Æ¬Ñ­»·-->
+         <div id="lb" style="width: 420px; height: 270px; position: relative; overflow: 
+hidden; text-overflow: clip;">
+        <ul>
+            <li>
+                <img src="OrderImg/1.jpg" /></li>
+            <li>
+                <img src="OrderImg/2.jpg" /></li>
+            <li>
+                <img src="OrderImg/3.jpg" /></li>
+            <li>
+                <img src="OrderImg/4.jpg" /></li>
+        </ul>
+        <div class="imgbanner">
+            <div class="imgbannerDiv">
+                <img src="OrderImg/1.jpg" />
+                <img src="OrderImg/2.jpg" />
+                <img src="OrderImg/3.jpg" />
+                <img src="OrderImg/4.jpg" />
+            </div>
+        </div>
+    </div>
+</div>

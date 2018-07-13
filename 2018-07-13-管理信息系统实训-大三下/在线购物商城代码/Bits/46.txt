@@ -1,0 +1,14 @@
+protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+{
+    strcon.Open();											//打开数据库连接
+    string uid = this.GridView1.DataKeys[e.RowIndex].Value.ToString();//获取主键
+    GridViewRow row = this.GridView1.Rows[e.RowIndex]; 		//获取每行的数据
+    string ingo = "update tb_BBS set title='" + 
+((TextBox)(row.Cells[0].Controls[0])).Text.ToString() + "',content='" + 
+((TextBox)(row.Cells[1].Controls[0])).Text.ToString() + "' where id=" +uid;//sql语句
+    SqlCommand goodsin = new SqlCommand(ingo, strcon); 		//执行sql语句
+    goodsin.ExecuteNonQuery();								//获取执行受影响的行
+    strcon.Close();											//关闭数据库连接
+    GridView1.EditIndex = -1;
+    dsdatabind();											//绑定公告
+}

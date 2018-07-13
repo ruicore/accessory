@@ -1,0 +1,29 @@
+/// <summary>
+/// 获取购物车
+/// </summary>
+/// <param name="context"></param>
+public void GetshopCar(HttpContext context)
+{
+    Class2.godset.WriteXml("F:\\aa.xml", XmlWriteMode.DiffGram);
+    try
+    {
+        if (Class2.godset.Tables[0].Rows.Count > 0)
+        {
+            DataTable dt = Class2.godset.Tables[0]; 			//获取查询到的购物车内容
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr["count"] = GetCount(dr["ID"].ToString());	//获取物品的数量
+            }
+            string json = f.ToJson(dt); 						//格式化查询到的数据
+            json = json.Replace("\"", "\\\"");
+            context.Response.Write("{\"status\":\"" + json + "\"}");
+        }
+        else
+        {
+            context.Response.Write("{\"status\":\"-1\"}");
+        }
+    }
+    catch
+    {
+    }
+}

@@ -1,0 +1,45 @@
+//获取类型
+ function GetType() {
+     var pd = { "t": "SelectType" };   						//设置需要向后台传递的值
+     $.ajax({
+         type: "post",
+         url: "tools/Handler.ashx",
+         data: pd,
+         dataType: "json",
+         success: function (data) {
+             if (data.status != "-1") {
+                 var dataobj = eval("(" + data.status + ")");//格式化后台传递过来的值
+                 $('#lx').empty();                              //清空显示类型区域的内容
+                 var tagtypeStr = '-99';						//当前类型
+                 var tagstr = '';							//当前文本
+                 var o = 1;
+                 $.each(dataobj.root, function (i, item) {
+                     var title = item.TypeName;				//显示文本
+                     var values = item.ID;					//值
+                     var typeStr = item.superType;			//类型
+                     if (tagstr == '') {
+                         tagtypeStr = typeStr;
+                     }
+                     if (tagtypeStr == typeStr) {
+                         tagstr += "<font 
+style='cursor:pointer;margin-left:18px;margin-top:20px;display:block;float:left' 
+onclick='ClickType(" + values + ")'>" + title + "</font>";
+                                o++;
+                                if (o == 4) {
+                                    tagstr += "<br />";
+                                    o = 1;
+                                }
+                            }
+                            else {
+                                $('#lx').append('<div style="margin-left: 1px; 
+font-size: 14px; color: rgb(92, 92, 92)">' + tagstr + '</div>');
+                        tagtypeStr = '-99';
+                        tagstr = '';
+                    }
+                });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

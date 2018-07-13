@@ -1,0 +1,47 @@
+﻿body
+{
+	font-size: 12px;
+}
+A:link
+{
+	color: #0099ff;
+}
+A:active
+{
+	color: #ff9999;
+}
+A:visited
+{
+	color: #0099ff;
+}
+.button{ 
+	font-family: "Tahoma", "宋体";
+	font-size: 9pt;
+	color: #0066cc;
+	background-color: #f0fbec;
+	font-style: normal;
+	border-top: 1px solid #ffffff;
+	border-right: 1px solid #c8e4ff;
+	border-bottom: 1px solid #c8e4ff;
+	border-left: 1px solid #ffffff;
+	background-image: url('none');
+	cursor: hand; 
+}
+
+.blueButtonCss
+{
+	font-family: "Tahoma" , "宋体";
+	font-size: 9pt;
+	color: #000033;
+	background-color: #ffffcc;
+	cursor: hand;
+	font-style: normal;
+	border-right: #00ffff dotted;
+	border-top: #00ffff dotted;
+	border-left: #00ffff dotted;
+	border-bottom: #00ffff dotted;
+}
+TD
+{
+	font-size: 9pt;
+}

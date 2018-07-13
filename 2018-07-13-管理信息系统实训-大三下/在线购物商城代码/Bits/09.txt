@@ -1,0 +1,20 @@
+/// <summary>
+/// 查询公告
+/// </summary>
+/// <param name="context"></param>
+public void GetBBs(HttpContext context)
+{
+    string sql = "select top(7) * from tb_bbs order by INTime desc";	//sql语句
+    DataSet dssuper = DataBase.ReDataSet(sql); 				//执行sql语句返回一组表
+    DataTable dt = dssuper.Tables[0]; 						//提取其中的第一张表
+    if (dt.Rows.Count > 0)
+    {
+        string json = f.ToJson(dt); 						//格式化表返回到前台
+        json = json.Replace("\"", "\\\"");
+        context.Response.Write("{\"status\":\"" + json + "\"}");
+    }
+    else
+    {
+        context.Response.Write("{\"status\":\"-1\"}");
+    }
+}

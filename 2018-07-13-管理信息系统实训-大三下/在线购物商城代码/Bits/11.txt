@@ -1,0 +1,19 @@
+//单击搜索
+function Clickselect() {
+    var str = $('#strSelect').val();						//获取文本框中的数据
+    var pd = { "t": "SetSelectStr", "str": str };			//设置传递到后台的数据
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                EjectIdent('select.html', '', '1000', '700'); //弹出一个页面
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+
+}

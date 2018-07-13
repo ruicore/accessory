@@ -1,0 +1,11 @@
+protected void dsdatabind()								//绑定GridView1数据
+{
+    strcon.Open();
+    string newque = "SELECT * FROM tb_BBS";					//获取所有公告信息的SQL语句
+    SqlDataAdapter datap = new SqlDataAdapter(newque, strcon); //执行sql语句
+    datap.Fill(dset); 										//填充数据到表中
+    GridView1.DataSource = dset; 							//绑定数据到控件的数据源中
+    this.GridView1.DataKeyNames = new string[] { "id" };	//设置主键
+    GridView1.DataBind();									//绑定数据源到控件
+    strcon.Close();											//关闭数据库连接
+}

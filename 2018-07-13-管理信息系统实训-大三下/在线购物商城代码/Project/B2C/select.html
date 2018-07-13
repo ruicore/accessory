@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#cen').hide();
+            GetDetile();
+        });
+        //根据产品类型获取产品
+        function GetDetile() {
+            var pd = { "t": "Select" };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        var dataobj = eval("(" + data.status + ")");
+                        $.each(dataobj.root, function (i, item) {
+                            var html = '<div style="height:100px;clear:both;margin-left:50px;">' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:20px;width:20px;">' + (i + 1) + '.</div>' +
+                                       '     <div style="float:left; margin-left:10px;"><img src="' + item.picture + '" style="height:100px;width:100px;" /></div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;width:200px;">' + item.goodsName + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;width:80px;">单价：￥' + item.price + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:130px;">' +
+                                       '         <input type="button" value="购买" style="background-color:#ff6a00;color:#fff;border:none;height:40px;width:80px;" onclick="buy(\'' + item.ID + '\')" />' +
+                                       '         <input type="button" value="查看" style="background-color:#ff6a00;color:#fff;border:none;height:40px;width:80px;margin-left:20px;" onclick="look(\'' + item.ID + '\')" />' +
+                                       '     </div>' +
+                                       ' </div>';
+                            $('#goods').append(html);
+                        });
+                    }
+                    else {
+                        $('#goods').html('<div style="font-size:28px;font-weight:900;text-align:center;margin-top:200px;">没有任何产品</div>');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //获取url参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        //查看
+        function look(a) {
+            $('#proid').val(a);
+            $('#cen').show();
+            var pd = { "t": "GetGoodDetile", "id": a };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        var dataobj = eval("(" + data.status + ")");
+                        $.each(dataobj.root, function (i, item) {
+                            $('#proName').html(item.goodsName);
+                            $('#proPrice').html(item.price);
+                            $('#pronowPrioce').html(item.nowPrice);
+                            $('#proImg').attr('src', item.picture);
+                        });
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //购买
+        function buy(a) {
+            var id = a;
+            var pd = { "t": "Buy", "id": id };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        alert('已经加入购物车');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //点击购买层中
+        function buyCen() {
+            var a = $('#proid').val();
+            buy(a);
+            Close();
+        }
+        //关闭层
+        function Close() {
+            $('#cen').hide();
+        }
+        //点击搜索
+        function Clickselect() {
+            var str = $('#strSelect').val();
+            var pd = { "t": "SetSelectStr", "str": str };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        $('#goods').empty();
+                        GetDetile();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+
+        }
+    </script>
+    
+</head>
+<body>
+    
+    <!--显示搜索-->
+    <div style="width:425px;margin:20px auto;height:50px;">
+        <input id="strSelect" type="text" style="height: 40px; width: 320px; float: left; font-size: 15px;" placeholder="请输入搜索信息：例如“电视，彩电，洗衣机”" />
+        <input type="button" value="搜索" style="float: left; height: 46px; width: 100px; border: none; font-size: 18px; color: white; background-color: rgb(255, 106, 0)" onclick="Clickselect()" />
+    </div>
+    <div id="goods" style="margin-top:20px; overflow:auto; height:600px;clear:both;">
+        <!--显示搜索到的内容-->
+    </div>
+     <!--点击产品的时候显示出来的产品详细信息-->
+    <div id="cen" style="margin-left:150px; position:absolute;background-color:#e5e5e5;left:190px;top:150px;border:1px solid #cccccc;width:300px;height:400px;">
+        <input type="hidden" id="proid" />
+        <div style="float:right;cursor:pointer;margin-top:10px;margin-right:10px;font-size:12px;" onclick="Close()">关闭</div>
+        <div style="width:200px;margin:auto;margin-top:20px;"><img src="" id="proImg" style="height:200px;width:200px;margin:auto;" /></div>
+        <div style="line-height:40px;margin-left:50px;">
+            <div>产品名称：<font id="proName"></font></div>
+            <div>原价：<font id="proPrice" style="text-decoration:line-through;"></font></div>
+            <div>现价：<font id="pronowPrioce"></font></div>
+            <div id="des"></div>
+            <div><input type="button" style="width:100px;margin-left:40px;height:30px;background-color:#ff6a00;border:none;color:#fff;" value="购买" onclick="buyCen()" /></div>
+        </div>
+
+    </div>
+</body>
+</html>

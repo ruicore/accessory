@@ -1,0 +1,70 @@
+//轮播图片
+function lb() {
+    var DeTime = 3000; 								//设置图片之间的等待时间
+    var ClickDeTime = 0; 							//单击等待时间（自动设定）
+    var listImg = $('#lb ul li'); 					//图片集合
+    listImg.css('list-style-type', 'none');
+    var maxWidth = $('#lb').width();					//最大宽度
+    var maxHeight = $('#lb').height();					//最大高度
+    $('#lb ul li img').css('height', maxHeight + "px");	//设置图片大小
+    $('#lb ul li img').css('width', maxWidth + "px");
+    listImg.css("position", "absolute");
+    listImg.css('top', '0');
+    listImg.css('left', 0);
+    var animateIndex = listImg.length - 1; 			//记录动画当前index
+    var imgAnimate = window.setInterval(function () {//设置动画效果
+        if (ClickDeTime > 0) {
+            ClickDeTime -= DeTime;
+            return;
+        }
+        $('#lb ul li:last-child').animate({ "left": maxWidth + "px" }, 1000, function 
+() {
+            var temp = $(this).clone();				//复制一个动画
+            $(this).remove();						//移出这个动画
+            temp.css('left', '0'); 					//设置这个动画的距离左面的距离
+            $('#lb ul').prepend(temp); 				//获取下一个对象
+            animateIndex--;
+            if (animateIndex < 0) {
+                animateIndex = listImg.length - 1;
+            }
+        })
+    }, DeTime);
+    //鼠标经过div显示导航
+    var bennerTop = maxHeight - $('.imgbanner').height();
+    $('#lb').mouseover(function () {								//优化动画效果
+        $('.imgbanner').stop(true, false).animate({ 'top': bennerTop + "px" }, 600);
+    }).mouseout(function () {										//优化动画效果
+        $('.imgbanner').stop(true, false).animate({ 'top': maxWidth + "px" }, 600);
+    });
+    //导航信息中添加单击事件
+    $('.imgbannerDiv img').click(function () {
+        var index = $(this).index();
+        $('#lb ul li:last-child').stop(true, true); 				//停止动画
+        var Aint = animateIndex + 1 + (listImg.length - 1) - index; //获得运行次数
+        for (var i = 0; i < Aint; i++) {
+            var temp = $('#lb ul li:last-child').clone();			//复制一个动画
+            $('#lb ul li:last-child').remove();						//移出这个动画
+            $('#lb ul').prepend(temp); 								//获取下一个动画
+            animateIndex--;
+            if (animateIndex < 0) {
+                animateIndex = listImg.length - 1;
+            }
+            ClickDeTime = DeTime;
+        }
+        window.setInterval(imgAnimate); 							//动画开始运行
+    });
+}
+
+//鼠标经过类型显示图片
+function MouseInPro() {
+    var timeover = null;
+    var timeout = null;
+    $('#ContentPro div').mousemove(function () {
+        var img = $(this).children('img'); 						//获取所有的img标签
+        img.stop(false, false).animate({ "left": "0px" }, 260); //优化动画
+    });
+    $('#ContentPro div').mouseout(function () {
+        var img = $(this).children('img'); 						//获取所有的img标签
+        img.stop(false, false).animate({ "left": "-165px" }, 260); //优化动画
+    });
+}

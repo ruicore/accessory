@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .row {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+        }
+
+        .row50 {
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+    </style>
+    <script>
+        $(function () {
+            GetShopCar();
+        });
+        var allAmount = 0;
+        //减
+        function reduce(a, id) {
+            //减少数量
+            var next = $(a).next('font');  //获取此标记的下一个font标记
+            //判断有没有下一个标记
+            if (next.html() != "0") {
+                next.html(parseInt(next.html()) - 1);
+            }
+            //减少钱数
+            var price = parseFloat($(a).parent().prev('div').html());//单价
+            var size = parseInt(next.html());//个数
+            var amount = price * size;//计算小计
+            $(a).parent().next('div').html('小计 ' + amount + ' （元）');
+            allAmount -= price;
+            $('#allamount').html('总价：￥' + allAmount);
+            //传递到后台
+            var pd = { "t": "UpdateNum", "id": id, "type": "2" };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //加
+        function add(a, id) {
+            //增加数量
+            var prev = $(a).prev('font');
+            prev.html(parseInt(prev.html()) + 1);
+            //增加钱数
+            var price = parseFloat($(a).parent().prev('div').html());//单价
+            var size = parseInt(prev.html());//个数
+            var amount = price * size;
+            $(a).parent().next('div').html('小计 ' + amount + ' （元）');
+            allAmount += price;
+            $('#allamount').html('总价：￥' + allAmount);
+            //调用后台方法
+            var pd = { "t": "UpdateNum", "id": id, "type": "1" };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //获取购物车
+        function GetShopCar() {
+            var pd = { "t": "GetshopCar" };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        var dataobj = eval("(" + data.status + ")");
+                        $.each(dataobj.root, function (i, item) {
+                            var amount = parseFloat(item.nowPrice) * parseInt(item.count);
+                            var html = '<div id="car' + item.ID + '" style="border-bottom:1px solid #d1d1d1;height:50px;background-color:rgb(243, 243, 243)">' +
+                                       ' <div class="row50" style="width:100px;"><input class="ckClass" value="' + item.ID + '" type="checkbox" /></div>' +
+                                       ' <div class="row50" style="width:400px;line-height:26px;">' + item.goodsName + '</div>' +
+                                       ' <div class="row50" style="width:100px;">' + item.nowPrice + '</div>' +
+                                       ' <div class="row50" style="width:150px;"><font style="cursor:pointer;" onclick="reduce(this,\'' + item.ID + '\')">-</font><font style="margin-left:20px;display">' + item.count + '</font><font style="margin-left:20px;cursor:pointer;" onclick="add(this,\'' + item.ID + '\')">+</font></div>' +
+                                       ' <div class="row50" style="width:130px;font-size:12px;" class="amount">小计 ' + amount + ' （元）</div>' +
+                                       ' <div class="row50" style="width:100px;cursor:pointer;" onclick="DeleteOne(\'' + item.ID + '\')">删除</div>' +
+                                   ' </div>';
+                            allAmount += amount;
+                            $('#car').append(html);
+                            $('#allamount').html('总价：￥' + allAmount);
+                        });
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        //点击结算
+        function jes() {
+            if (allAmount == 0)
+            {
+                return;
+            }
+            window.location.href = 'settlement.html?allAmount=' + allAmount;
+        }
+        //全选
+        function AllCheck(a) {
+            if ($(a).is(':checked')) {
+                $('.ckClass').prop("checked", true);
+            }
+            else {
+                $('.ckClass').removeAttr('checked');
+            }
+        }
+        //删除物品
+        function DeleteGoods() {
+            if ($('.ckClass:checked').length == 0)
+            {
+                return;
+            }
+            if (confirm('是否删除所选?')) {
+                var check = $('.ckClass:checked').each(function () {
+                    var id = $(this).val();
+                    var pd = { "t": "SetXml", "id": id };
+                    $.ajax({
+                        type: "post",
+                        url: "tools/Handler.ashx",
+                        data: pd,
+                        dataType: "json",
+                        success: function (data) {
+                            var amoun = $($('#car' + id).children('div').get(4)).html().replace('小计', '').replace('（元）', '');
+                            allAmount -= parseFloat(amoun);
+                            $('#allamount').html('总价：￥' + allAmount);
+                            $('#car' + id).remove();
+
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        }
+                    });
+                });
+            }
+        }
+        //删除一个商品
+        function DeleteOne(a) {
+            if (confirm('是否删除?')) {
+                var id = a;
+                var pd = { "t": "SetXml", "id": id };
+                $.ajax({
+                    type: "post",
+                    url: "tools/Handler.ashx",
+                    data: pd,
+                    dataType: "json",
+                    success: function (data) {
+                        var amoun = $($('#car' + id).children('div').get(4)).html().replace('小计', '').replace('（元）', '');
+                        allAmount -= parseFloat(amoun);
+                        $('#allamount').html('总价：￥' + allAmount);
+                        $('#car' + id).remove();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+                });
+            }
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div style="height:40px;line-height:40px;color:rgb(203, 203, 203);padding-left:20px;font-weight:900;border-bottom:1px solid #d1d1d1;">我的购物车</div>
+    <div id="car" style="width:980px;height:450px;overflow:auto;" >
+        <div style="border-bottom:1px solid #d1d1d1;height:40px;background-color:#d1d1d1;">
+            <div class="row" style="width:100px;"><input type="checkbox" onclick="AllCheck(this)" />全选</div>
+            <div class="row" style="width:400px;">商品</div>
+            <div class="row" style="width:100px;">单价</div>
+            <div class="row" style="width:150px;">数量</div>
+            <div class="row" style="width:130px;">小计（元）</div>
+            <div class="row" style="width:100px;">操作</div>
+        </div>
+        <div style="height:40px;text-align:right;color:rgb(107, 107, 107);line-height:50px;padding-right:30px;font-size:12px;">
+            全场包邮哦！
+        </div>
+        <!--<div style="border-bottom:1px solid #d1d1d1;height:50px;background-color:rgb(243, 243, 243)">
+            <div class="row50" style="width:100px;"><input type="radio" />全选</div>
+            <div class="row50" style="width:400px;line-height:26px;">商品</div>
+            <div class="row50" style="width:100px;">单价</div>
+            <div class="row50" style="width:150px;"><font style="cursor:pointer;" onclick="reduce(this)">-</font><font style="margin-left:20px;display">1</font><font style="margin-left:20px;cursor:pointer;" onclick="add(this)">+</font></div>
+            <div class="row50" style="width:130px;">小计（元）</div>
+            <div class="row50" style="width:100px;">操作</div>
+        </div>-->
+    </div>
+    <div>
+        <div class="row" style="width:100px;"><input type="radio" />全选</div>
+        <div class="row" style="width:100px;"><input type="button" value="删除选中商品" onclick="DeleteGoods()" /></div>
+
+        <div class="row" style="width:200px;color:red;font-weight:900;float:right;"><input type="button" value="去结算" style="width:100px;height:40px;border:none;background-color:rgb(255, 106, 0);font-weight:900;font-size:18px;color:#fff;" onclick="jes()" /></div>
+        <div id="allamount" class="row" style="width:200px;color:red;font-weight:900;float:right; ">总价：￥0</div>
+    </div>
+</body>
+</html>

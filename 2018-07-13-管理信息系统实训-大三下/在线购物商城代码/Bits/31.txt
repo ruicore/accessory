@@ -1,0 +1,29 @@
+//删除物品
+function DeleteGoods() {
+    if ($('.ckClass:checked').length == 0)
+    {
+        return;
+    }
+    if (confirm('是否删除所选?')) {								//弹出提示
+        var check = $('.ckClass:checked').each(function () {
+            var id = $(this).val();
+            var pd = { "t": "SetXml", "id": id };				//向后台传递的参数
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    //获取金额
+                    var amoun = $($('#car' + 
+id).children('div').get(4)).html().replace('小计', '').replace('（元）', '');
+                    allAmount -= parseFloat(amoun);
+                    $('#allamount').html('总价：￥' + allAmount); //设置总价
+                    $('#car' + id).remove();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        });
+    }
+}

@@ -1,0 +1,14 @@
+protected void dsdatabind()//绑定GridView1数据
+{
+    //要执行的查询所有订单的语句
+    string newque = "select 
+a.orderid,a.username,b.truename,a.pay,a.carry,a.orderdate,case enforce when 0 then '
+未执行' else '已执行' end as zx from tb_order a left outer join tb_member b on 
+a.username=b.username ";
+    SqlDataAdapter datap = new SqlDataAdapter(newque, strcon);
+    datap.Fill(dset); 										//获取查询到的内容
+    GridView1.DataSource = dset; 							//把数据设置到前台控件中
+    this.GridView1.DataKeyNames = new string[] { "orderid" };//设置控件的主键
+    GridView1.DataBind();									//把数据绑定到控件中
+    strcon.Close();											//关闭数据链接
+}

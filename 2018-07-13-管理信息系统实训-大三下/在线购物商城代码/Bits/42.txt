@@ -1,0 +1,8 @@
+protected void dsdatabind()  					//绑定GridView1数据
+ {
+     string newque = "SELECT *, CASE newgoods WHEN 1 THEN '是' ELSE '否' END AS nngoods 
+FROM tb_goods";								//查询所有的商品
+    GridView1.DataSource = DataBase.ReDataSet(newque);
+    this.GridView1.DataKeyNames = new string[] { "id" };
+    GridView1.DataBind();						//绑定到前台GridView控件
+}

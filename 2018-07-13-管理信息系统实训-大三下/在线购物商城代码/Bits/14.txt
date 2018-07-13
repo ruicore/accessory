@@ -1,0 +1,50 @@
+//根据商品类型获取商品
+function GetDetile() {
+    var pd = { "t": "Select" };								//设置传递到后台的参数
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                var dataobj = eval("(" + data.status + ")");	//格式化数据
+                $.each(dataobj.root, function (i, item) {
+                    var html = '<div style="height:100px;clear:both;margin-left:50px;">' 
++
+                               '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:20px;wi
+dth:20px;">' + (i + 1) + '.</div>' +
+                                       '     <div style="float:left; 
+margin-left:10px;"><img src="' + item.picture + '" style="height:100px;width:100px;" 
+/></div>' +
+                                       '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;wi
+dth:200px;">' + item.goodsName + '</div>' +
+                                       '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;wi
+dth:80px;">单价：￥' + item.price + '</div>' +
+                                       '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:130px;"
+>' +
+                                       '         <input type="button" value="购买" 
+style="background-color:#ff6a00;color:#fff;border:none;height:40px;width:80px;" 
+onclick="buy(\'' + item.ID + '\')" />' +
+                                       '         <input type="button" value="查看" 
+style="background-color:#ff6a00;color:#fff;border:none;height:40px;width:80px;margin
+-left:20px;" onclick="look(\'' + item.ID + '\')" />' +
+                               '     </div>' +
+                               ' </div>';
+                    $('#goods').append(html); 				//向页面添加内容
+                });
+            }
+            else {
+                $('#goods').html('<div 
+style="font-size:28px;font-weight:900;text-align:center;margin-top:200px;">没有任何产
+品</div>');
+             }
+         },
+         error: function (XMLHttpRequest, textStatus, errorThrown) {
+         }
+     });
+ }

@@ -1,0 +1,19 @@
+/*轮播用的*/
+.imgbanner {
+    position: absolute; 							/*位置*/
+    top: 320px;	 									/*x坐标*/
+    left: 0px; 										/*y坐标*/
+    background-color: rgba(255,255,255,.4); 		/*背景颜色*/
+    height: 75px; 									/*高度*/
+    width: 100%;									/*宽度*/
+}
+.imgbannerDiv {
+    padding-left: 20px; 							/*距离左面的距离*/
+}
+    .imgbannerDiv img {
+        width: 70px;	 							/*宽度*/
+        height: 70px; 								/*高度*/
+        margin: 2px 10px; 							/*距离边距的距离*/
+        cursor: pointer; 							/*鼠标经过显示手型*/
+    }
+/*轮播用的 END*/

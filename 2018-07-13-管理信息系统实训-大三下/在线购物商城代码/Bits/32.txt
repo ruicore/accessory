@@ -1,0 +1,27 @@
+﻿//添加订单
+function AddOrder() {
+    var DDfa = zf;
+    var DDyu = 0;
+    var Des = $('#des').val();									//设置说明文字
+    //向后台传递的参数
+    var pd = { "t": "AddOrder", "DDfa": DDfa, "DDyu": DDyu, "Des": Des };
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                //关闭本窗体
+                window.parent.window.Cover();					//显示背景透明的层
+                var close = $('#CloseCover', parent.document);
+                $('#coverDiv', parent.document).remove();		//移出弹出的框
+                $(close).parent().parent().remove();				//移出关闭按钮
+            }
+            else {
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

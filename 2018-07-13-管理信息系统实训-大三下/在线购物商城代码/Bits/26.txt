@@ -1,0 +1,10 @@
+/// <summary>
+/// 获取购物车的数量
+/// </summary>
+/// <param name="context"></param>
+public string GetCount(string id)
+{
+    string count = 
+((System.Collections.Hashtable)(HttpContext.Current.Session["bus"]))[id].ToString();
+    return count;
+}

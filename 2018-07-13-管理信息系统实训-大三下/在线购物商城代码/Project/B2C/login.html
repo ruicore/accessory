@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function login()
+        {
+            var userName = $('#userName').val();
+            var pwd = $('#pwd').val();
+            var pd = { "t": "Login", "userName": userName, "pwd": pwd };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        window.parent.LoginSet();
+                        //关闭本窗体
+                        window.parent.window.Cover();
+                        var close = $('#CloseCover', parent.document);
+                        $('#coverDiv', parent.document).remove();
+                        $(close).parent().parent().remove();
+                        
+                    }
+                    else {
+                        alert('用户名密码错误');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:#5ea7db; height:80px; width:100%;">
+        <img src="logo.png" style="margin-left:190px; margin-top:10px;" />
+    </div>
+    <div style="margin-top:80px; margin-left:90px;">
+        <div style="width:400px;margin:auto;margin-top:30px;">
+            <font style="font-size:21px;">用户名:</font><input id="userName" type="text" style="margin-left:10px; width:220px; height:40px;" />
+        </div>
+        <div style="width:400px;margin:auto;margin-top:35px;">
+            <font style="font-size:21px;">密&nbsp;码:</font><input id="pwd" type="password" style="margin-left:10px; width:220px; height:40px;" />
+        </div>
+        <div style="width:400px;margin:auto;margin-top:35px;">
+            <input type="button" value="用户登录" style="height:30px;width:80px; margin-left:82px; width:225px; height:40px; background-color:#5ea7db; color:#fff; border:none;" onclick="login()" />
+        </div>
+    </div>
+</body>
+</html>

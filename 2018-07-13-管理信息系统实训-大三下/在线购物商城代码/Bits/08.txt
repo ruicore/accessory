@@ -1,0 +1,24 @@
+//获取公告
+function GetBBS() {
+    var pd = { "t": "GetBBs" };								//传递到后台的参数
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                var dataobj = eval("(" + data.status + ")");	//格式化数据
+                $.each(dataobj.root, function (i, item) {
+                    var html = '<div style="margin-top: 15px; margin-left: 10px;cursor: 
+pointer;white-space:nowrap; text-overflow:ellipsis;overflow:hidden;" 
+onclick="clickBBs(\'' + item.ID + '\')"><font style="color:#ff3300">【促销】</font> ' 
++ item.title + '</div>';
+                    $('#gg').append(html); 					//把数据显示到前台
+                });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

@@ -1,0 +1,843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\program\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.Xsl"?>
+<FxCopReport Version="8">
+ <Targets>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Class2" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name=".cctor()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\App_Code" File="Class2.cs" Line="18">只要“Class2.Class2()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="dafill(System.Collections.Hashtable):System.Void" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\App_Code" File="Class2.cs" Line="51">更正成员名“dafill”的大小写。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\App_Code" File="Class2.cs" Line="56">检查传递给 Class2.dafill(Hashtable):Void 中的 SqlDataAdapter.SqlDataAdapter(String, String) 的查询字符串“select * from tb_goods where id='____'”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="godataset(System.String):System.Void" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\App_Code" File="Class2.cs" Line="27">更正成员名“godataset”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="godset" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Warning">考虑将“godset”设置为非公共的或使它成为常量。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="hh" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Warning">考虑将“hh”设置为非公共的或使它成为常量。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="showmessage(System.String):System.String" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\App_Code" File="Class2.cs" Line="64">更正成员名“showmessage”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DataBase" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">“DataBase”应在命名空间内声明。</Issue>
+          </Message>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Certainty="90" Level="Error">从“DataBase”中移除公共构造函数。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="ReDataSet(System.String):System.Data.DataSet" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0#" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Parameter" Certainty="95" Level="Error" Path="d:\netpro\business\App_Code" File="DataBase.cs" Line="27">更正参数名“FillSql”的大小写。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\App_Code" File="DataBase.cs" Line="31">只要“DataBase.ReDataSet(String):DataSet”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+            <Message Id="Member" TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\netpro\business\App_Code" File="DataBase.cs" Line="27">更正成员名“DataBase.ReDataSet(String):DataSet”中“Re”的大写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_global.asax.dll">
+   <Modules>
+    <Module Name="app_global.asax.dll">
+     <Namespaces>
+      <Namespace Name="ASP">
+       <Types>
+        <Type Name="global_asax" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="Application_End(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\netpro\business" File="Global.asax" Line="12">“global_asax.Application_End(Object, EventArgs):Void”似乎没有上游 public 或 protected 的调用方。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Application_Error(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\netpro\business" File="Global.asax" Line="18">“global_asax.Application_Error(Object, EventArgs):Void”似乎没有上游 public 或 protected 的调用方。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Application_Start(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\netpro\business" File="Global.asax" Line="6">“global_asax.Application_Start(Object, EventArgs):Void”似乎没有上游 public 或 protected 的调用方。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Session_End(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\netpro\business" File="Global.asax" Line="30">“global_asax.Session_End(Object, EventArgs):Void”似乎没有上游 public 或 protected 的调用方。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Session_Start(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\netpro\business" File="Global.asax" Line="24">“global_asax.Session_Start(Object, EventArgs):Void”似乎没有上游 public 或 protected 的调用方。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Web_485ibcoh.dll">
+   <Modules>
+    <Module Name="app_web_485ibcoh.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="gogoods_shopcar" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“gogoods_shopcar”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Button1_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="87">修改“gogoods_shopcar.Button1_Click(Object, EventArgs):Void”以便捕捉比“System.Object”更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="64">检查传递给 gogoods_shopcar.Button1_Click(Object, EventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“insert into tb_order(username,pay,carry,orderdate,enforce,bz) values('____','____','____','____','____','____')”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="82">检查传递给 gogoods_shopcar.Button1_Click(Object, EventArgs):Void 中的 DbCommand.set_CommandText(String):Void 的查询字符串“insert into tb_order_detail (orderid,goodsid,price,number) values('____','____','____','____')”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="69">只要“gogoods_shopcar.Button1_Click(Object, EventArgs):Void”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToDouble(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="78">gogoods_shopcar.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="77">gogoods_shopcar.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="79">gogoods_shopcar.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToInt64(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="73">gogoods_shopcar.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt64(System.Object) 进行调用。此操作应改为对 System.Convert.ToInt64(System.Object,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="DataList1_ItemDataBound(System.Object,System.Web.UI.WebControls.DataListItemEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Web.UI.ITextControl.set_Text(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="54">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“总计：__”</Issue>
+            </Message>
+            <Message Id="System.Convert.ToDouble(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="52">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="53">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToInt64(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="52">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt64(System.String) 进行调用。此操作应改为对 System.Convert.ToInt64(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="52">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 对未显式提供 IFormatProvider 的 System.Double.ToString 进行调用。此操作应改为对 System.Double.ToString(System.IFormatProvider) 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="54">gogoods_shopcar.DataList1_ItemDataBound(Object, DataListItemEventArgs):Void 对未显式提供 IFormatProvider 的 System.Double.ToString 进行调用。此操作应改为对 System.Double.ToString(System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\netpro\business" File="shopcar.aspx.cs" Line="34">修改“gogoods_shopcar.Page_Load(Object, EventArgs):Void”以便捕捉比“System.Object”更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="newgoods" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“newgoods”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\netpro\business" File="newgoods.aspx.cs" Line="26">修改“newgoods.Page_Load(Object, EventArgs):Void”以便捕捉比“System.Exception”更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="showgoods_affiche" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“showgoods_affiche”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="affiche.aspx.cs" Line="18">showgoods_affiche.Page_Load(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="showgoods_goodsdetail" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“showgoods_goodsdetail”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="goodsdetail.aspx.cs" Line="18">showgoods_goodsdetail.Page_Load(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="strcon" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段“showgoods_goodsdetail.strcon”或只对其进行过赋值。请使用此字段或移除它。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="showgoods_oldgoods" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“showgoods_oldgoods”的大小写。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="showgoods_type" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“showgoods_type”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="type.aspx.cs" Line="18">showgoods_type.Page_Load(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Web_bysfslta.dll">
+   <Modules>
+    <Module Name="app_web_bysfslta.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="adminmanger_addgg" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_addgg”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name=".ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="17">只要“adminmanger_addgg.adminmanger_addgg()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="dsdatabind():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="31">更正成员名“dsdatabind”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="GridView1_RowDeleting(System.Object,System.Web.UI.WebControls.GridViewDeleteEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="64">修改 adminmanger_addgg.GridView1_RowDeleting(Object, GridViewDeleteEventArgs):Void 以释放所有代码路径的类型为“'comm'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="60">检查传递给 adminmanger_addgg.GridView1_RowDeleting(Object, GridViewDeleteEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“delete from tb_BBS where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="GridView1_RowUpdating(System.Object,System.Web.UI.WebControls.GridViewUpdateEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="86">修改 adminmanger_addgg.GridView1_RowUpdating(Object, GridViewUpdateEventArgs):Void 以释放所有代码路径的类型为“'goodsin'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="addgg.aspx.cs" Line="81">检查传递给 adminmanger_addgg.GridView1_RowUpdating(Object, GridViewUpdateEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“update tb_BBS set title='____',content='____' where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="adminmanger_addgoods" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_addgoods”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name=".ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="17">只要“adminmanger_addgoods.adminmanger_addgoods()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="binddd2():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="55">更正成员名“binddd2”的大小写。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="59">检查传递给 adminmanger_addgoods.binddd2():Void 中的 SqlDataAdapter.SqlDataAdapter(String, SqlConnection) 的查询字符串“select * from tb_subtype where supertype=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Button1_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="96">修改 adminmanger_addgoods.Button1_Click(Object, EventArgs):Void 以释放所有代码路径的类型为“'goodsin'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="92">检查传递给 adminmanger_addgoods.Button1_Click(Object, EventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“insert into tb_goods (typeid,goodsname,introduce,price,nowprice,picture,newgoods,intime) values('____','____','____','____','____','~/image/goodsima/____','____','____')”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToDouble(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="78">adminmanger_addgoods.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="79">adminmanger_addgoods.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToInt16(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="75">adminmanger_addgoods.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt16(System.String) 进行调用。此操作应改为对 System.Convert.ToInt16(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Button4_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="127">修改“adminmanger_addgoods.Button4_Click(Object, EventArgs):Void”以便捕捉比“System.Exception”更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="117">使用 String.IsNullOrEmpty 调用替换“adminmanger_addgoods.Button4_Click(Object, EventArgs):Void”中对 String.op_Inequality("") 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="clearaddgoods():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Web.UI.ITextControl.set_Text(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="103">adminmanger_addgoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="104">adminmanger_addgoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="105">adminmanger_addgoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="106">adminmanger_addgoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="107">adminmanger_addgoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+            </Message>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="102">更正成员名“clearaddgoods”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="DropDownList1_SelectedIndexChanged(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="49">使用 String.IsNullOrEmpty 调用替换“adminmanger_addgoods.DropDownList1_SelectedIndexChanged(Object, EventArgs):Void”中对 String.op_Inequality("") 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="25">adminmanger_addgoods.Page_Load(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.String) 进行调用。此操作应改为对 System.Convert.ToInt32(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\netpro\business\adminmanger" File="addgoods.aspx.cs" Line="40">使用 String.IsNullOrEmpty 调用替换“adminmanger_addgoods.Page_Load(Object, EventArgs):Void”中对 String.op_Inequality("") 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="adminmanger_goodsmanage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_goodsmanage”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="dsdatabind():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="goodsmanage.aspx.cs" Line="38">更正成员名“dsdatabind”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="GridView1_RowDeleting(System.Object,System.Web.UI.WebControls.GridViewDeleteEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="goodsmanage.aspx.cs" Line="36">修改 adminmanger_goodsmanage.GridView1_RowDeleting(Object, GridViewDeleteEventArgs):Void 以释放所有代码路径的类型为“'comm'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="goodsmanage.aspx.cs" Line="32">检查传递给 adminmanger_goodsmanage.GridView1_RowDeleting(Object, GridViewDeleteEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“delete from tb_goods where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="adminmanger_membermanger" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_membermanger”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name=".ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\adminmanger" File="membermanger.aspx.cs" Line="17">只要“adminmanger_membermanger.adminmanger_membermanger()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="dsdatabind():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="membermanger.aspx.cs" Line="31">更正成员名“dsdatabind”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="GridView2_RowDeleting(System.Object,System.Web.UI.WebControls.GridViewDeleteEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="membermanger.aspx.cs" Line="49">修改 adminmanger_membermanger.GridView2_RowDeleting(Object, GridViewDeleteEventArgs):Void 以释放所有代码路径的类型为“'comm'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="membermanger.aspx.cs" Line="45">检查传递给 adminmanger_membermanger.GridView2_RowDeleting(Object, GridViewDeleteEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“delete from tb_member where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="adminmanger_ordermanger" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_ordermanger”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name=".ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\adminmanger" File="ordermanger.aspx.cs" Line="17">只要“adminmanger_ordermanger.adminmanger_ordermanger()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="dsdatabind():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="ordermanger.aspx.cs" Line="31">更正成员名“dsdatabind”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="GridView1_SelectedIndexChanging(System.Object,System.Web.UI.WebControls.GridViewSelectEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="ordermanger.aspx.cs" Line="48">修改 adminmanger_ordermanger.GridView1_SelectedIndexChanging(Object, GridViewSelectEventArgs):Void 以释放所有代码路径的类型为“'comm'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="ordermanger.aspx.cs" Line="44">检查传递给 adminmanger_ordermanger.GridView1_SelectedIndexChanging(Object, GridViewSelectEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“update tb_order set enforce=1 where orderid=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Web_fr4pp4g4.dll">
+   <Modules>
+    <Module Name="app_web_fr4pp4g4.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="bottom" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“bottom”的大小写。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="left" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“left”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Button1_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business" File="left.ascx.cs" Line="73">修改 left.Button1_Click(Object, EventArgs):Void 以释放所有代码路径的类型为“'dap'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business" File="left.ascx.cs" Line="61">检查传递给 left.Button1_Click(Object, EventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“select count(*) from tb_member where username='____' and password='____'”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Page_Load(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business" File="left.ascx.cs" Line="29">只要“left.Page_Load(Object, EventArgs):Void”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Web_ksfs9j7l.dll">
+   <Modules>
+    <Module Name="app_web_ksfs9j7l.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="adminmanger_adminpage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_adminpage”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Login1_Authenticate(System.Object,System.Web.UI.WebControls.AuthenticateEventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="adminpage.aspx.cs" Line="40">修改 adminmanger_adminpage.Login1_Authenticate(Object, AuthenticateEventArgs):Void 以释放所有代码路径的类型为“'dap'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="adminpage.aspx.cs" Line="28">检查传递给 adminmanger_adminpage.Login1_Authenticate(Object, AuthenticateEventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“select count(*) from tb_manager where manager='____' and Pwd='____'”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="adminmanger_leftmenu" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_leftmenu”的大小写。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="adminmanger_updategoods" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“adminmanger_updategoods”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name=".ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="16">只要“adminmanger_updategoods.adminmanger_updategoods()”创建了该类型的实例，就要确保设置 DataSet Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="Button1_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="79">修改 adminmanger_updategoods.Button1_Click(Object, EventArgs):Void 以释放所有代码路径的类型为“'goodsin'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="75">检查传递给 adminmanger_updategoods.Button1_Click(Object, EventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“update tb_goods set goodsname='____',introduce='____',price='____',nowprice='____',picture='____',newgoods='____',intime='____' where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToDouble(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="61">adminmanger_updategoods.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="62">adminmanger_updategoods.Button1_Click(Object, EventArgs):Void 对未显式提供 IFormatProvider 的 System.Convert.ToDouble(System.String) 进行调用。此操作应改为对 System.Convert.ToDouble(System.String,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="clearaddgoods():System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Web.UI.ITextControl.set_Text(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="86">adminmanger_updategoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="87">adminmanger_updategoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="88">adminmanger_updategoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="89">adminmanger_updategoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="90">adminmanger_updategoods.clearaddgoods():Void 将文本作为对 ITextControl.set_Text(String):Void 的调用的参数 1 进行传递。请改为从资源表中检索以下字符串参数:“”</Issue>
+            </Message>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="85">更正成员名“clearaddgoods”的大小写。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="updatefill(System.String):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Member" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="31">更正成员名“updatefill”的大小写。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="34">检查传递给 adminmanger_updategoods.updatefill(String):Void 中的 SqlDataAdapter.SqlDataAdapter(String, SqlConnection) 的查询字符串“select * from tb_goods where id=__”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+            <Message Id="System.Convert.ToInt32(System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\adminmanger" File="updategoods.aspx.cs" Line="44">adminmanger_updategoods.updatefill(String):Void 对未显式提供 IFormatProvider 的 System.Convert.ToInt32(System.Object) 进行调用。此操作应改为对 System.Convert.ToInt32(System.Object,System.IFormatProvider) 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="E:\Documents and Settings\Administrator\Local Settings\Temp\tmp1A.tmp.cadir\bin\App_Web_kytqvwo3.dll">
+   <Modules>
+    <Module Name="app_web_kytqvwo3.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="login" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">更正类型名“login”的大小写。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="Button1_Click(System.Object,System.EventArgs):System.Void" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="d:\netpro\business\login" File="login.aspx.cs" Line="60">修改 login.Button1_Click(Object, EventArgs):Void 以释放所有代码路径的类型为“'comm'”的本地 SqlCommand。</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\netpro\business\login" File="login.aspx.cs" Line="51">修改“login.Button1_Click(Object, EventArgs):Void”以便捕捉比“System.Object”更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2006-03-31 01:47:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Error" Path="d:\netpro\business\login" File="login.aspx.cs" Line="43">检查传递给 login.Button1_Click(Object, EventArgs):Void 中的 SqlCommand.SqlCommand(String, SqlConnection) 的查询字符串“insert into tb_member (username,truename,password,city,address,postcode,cardno,cardtype,tel,email) values('____','____','____','____','____','____','____','____','____','____')”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>避免使用未调用的私有代码</Name>
+   <Description>有对外部不可见的未调用代码，且它不是已知的运行库入口点。如果此冲突引发错误，请向 FxCop 组发送问题报告。</Description>
+   <Resolution Name="Default">“{0}”似乎没有上游 public 或 protected 的调用方。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>避免未使用的私有字段</Name>
+   <Description>检测到程序集内似乎有未访问过的私有字段。如果在错误中引发此冲突，请向 FxCop 组发送问题报告。</Description>
+   <Resolution Name="Default">似乎从未使用过字段“{0}”或只对其进行过赋值。请使用此字段或移除它。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050">
+   <Name>在命名空间中声明类型</Name>
+   <Description>应在命名空间内定义类型以避免重复。</Description>
+   <Resolution Name="Default">“{0}”应在命名空间内声明。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="DisposeObjectsBeforeLosingScope" Category="Microsoft.Reliability" CheckId="CA2000">
+   <Name>超出范围前释放对象</Name>
+   <Description>如果在对可释放对象的所有引用超出范围前没有释放该对象，则不会在该对象完成后释放该对象。如果 AppDomain 突然关闭，则该对象可能会无法完成，因而将永远无法被释放。</Description>
+   <Resolution Name="Default">修改 {0} 以释放所有代码路径的类型为“{1}”的本地 {2}。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="ReliabilityRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>不要捕捉一般异常类型</Name>
+   <Description>不应捕捉 Exception 或 SystemException。捕捉一般异常类型会使库用户看不到运行时问题，并会使调试复杂化。您应该仅捕捉自己可以进行适当处理的异常。</Description>
+   <Resolution Name="Default">修改“{0}”以便捕捉比“{1}”更具体的异常，或者再次引发该异常。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>请不要将文本作为本地化参数传递</Name>
+   <Description>嵌入源代码的字符串难以进行本地化。对于通常应进行本地化的字符串，要避免将其作为参数来传递。例如，多数本地化的应用程序应对传递给异常构造函数的字符串参数进行本地化。因此，创建异常实例时，从字符串表检索的字符串参数比字符串更为适合。</Description>
+   <Resolution Name="Default">{0} 将文本作为对 {2} 的调用的参数 {1} 进行传递。请改为从资源表中检索以下字符串参数:“{3}”</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>标识符的大小写应当正确</Name>
+   <Description>类型、命名空间和成员标识符应采用 Pascal 大小写格式。参数标识符应采用 Camel 大小写格式。Pascal 大小写格式约定每个单词的首字母大写，如 BackColor。Camel 大小写格式约定第一个单词的首个字母小写，所有后续单词的首个字母都大写，如 backgroundColor。</Description>
+   <Resolution Name="Member">更正成员名“{0}”的大小写。</Resolution>
+   <Resolution Name="Parameter">更正参数名“{0}”的大小写。</Resolution>
+   <Resolution Name="Type">更正类型名“{0}”的大小写。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
+   <Name>非常量字段不应是可见的</Name>
+   <Description>除非您使用锁来小心地管理对静态字段的访问，否则这些字段应为常量。如果使用静态变量而不保证它们是线程安全的，则可能威胁到执行状态。此规则适用于托管代码库。如果分析的程序集是应用程序，则忽略此规则冲突通常是安全的。</Description>
+   <Resolution Name="Default">考虑将“{0}”设置为非公共的或使它成为常量。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="UsageRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewSqlQueriesForSecurityVulnerabilities" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>检查 Sql 查询中是否有安全漏洞</Name>
+   <Description>通过用户输入生成的 SQL 查询具有潜在漏洞，容易受到注入式攻击。Sql Server 和其他数据库服务器都支持参数化 Sql 查询，该功能可降低受到注入式攻击的风险。</Description>
+   <Resolution Name="Default">检查传递给 {2} 中的 {1} 的查询字符串“{0}”是否接受用户输入。如果接受用户输入，请考虑使用参数化 Sql 查询，而不是通过串联字符串生成查询。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="SecurityRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306">
+   <Name>设置数据类型的区域设置</Name>
+   <Description>在多数情况下，应将 DataSet 和 DataTable 实例的 Locale 显式设置为 CultureInfo.InvariantCulture。在创建 DataSet 或 DataTable 实例时，将 Locale 设置为当前区域。在多数情况下，应将 Locale 设置为 CultureInfo.InvariantCulture，以保证所有区域中的排序行为都正确。</Description>
+   <Resolution Name="Default">只要“{1}”创建了该类型的实例，就要确保设置 {0} Locale 属性。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706">
+   <Name>较短的首字母缩略词应全部大写</Name>
+   <Description>由两个字母组成的首字母缩略词应全部大写。例如，应使用 System.IO，而不是 System.Io。尽管有些两个字母的首字母缩略词习惯采用后一种形式，但不应因此而排斥此规则。例如，“DbConnection”很常见，但并不正确，应使用“DBConnection”。为与现有非托管符号方案兼容，可能需要违反此规则。但一般来说，这些符号在使用它们的程序集之外不可见。</Description>
+   <Resolution Name="Member">更正成员名“{1}”中“{0}”的大写。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>指定 IFormatProvider</Name>
+   <Description>如果存在一个将 IFormatProvider 作为参数的重载，则应始终调用该重载，而不使用不具有该参数的重载。公共语言运行库中的某些方法执行值与字符串表示形式之间的相互转换，并使用一个叫做格式说明符的字符串参数，该参数包含一个或多个字符，用于指示如何对值进行转换。如果格式说明符的含义因区域性而异，则格式设置对象提供在字符串表示形式中使用的实际字符。如果区域之间的排序和比较行为应始终不变，请指定 CultureInfo.InvariantCulture。</Description>
+   <Resolution Name="Default">{0} 对未显式提供 IFormatProvider 的 {1} 进行调用。此操作应改为对 {2} 的调用。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+   <Name>静态容器类型不应具有构造函数</Name>
+   <Description>不需要创建只定义静态成员的类型的实例。如果没有指定构造函数，许多编译器都会自动添加公共的默认构造函数。为了避免出现这种情况，可能需要添加一个空的私有构造函数。</Description>
+   <Resolution Name="Default">从“{0}”中移除公共构造函数。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="8.0.0.0" />
+  </Rule>
+  <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+   <Name>使用字符串长度测试是否有空字符串</Name>
+   <Description>若要测试是否有空字符串，请检查 String.Length 是否等于零。对于如 "".Equals(someString) 和 String.Empty.Equals(someString) 之类的构造，其效率低于字符串长度测试。请使用 someString.Length == 0 检查来替换它们。</Description>
+   <Resolution Name="IsNullOrEmpty">使用 String.IsNullOrEmpty 调用替换“{2}”中对 String.{0}({1}) 的调用。</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="8.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="Line">行</String>
+  <String Key="LocationNotStoredInPdb">&lt;Location not stored in Pdb&gt;</String>
+  <String Key="Project">项目</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">Microsoft Visual Studio 2005 代码分析报告</String>
+ </Localized>
+</FxCopReport>

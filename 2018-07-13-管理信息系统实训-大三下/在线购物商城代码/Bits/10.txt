@@ -1,0 +1,6 @@
+<div style="width: 500px; height: 50px; float: right; margin-top: 60px;">
+<input type="text"，placeholder="请输入搜索信息：例如“电视，彩电，洗衣机”" />
+    <input id="strSelect" type="button" value="搜索" style="float: left; height: 46px; 
+width: 100px; border: none; font-size: 18px; color: white; background-color: rgb(255, 
+106, 0)" onclick="Clickselect()" />
+</div>

@@ -1,0 +1,11 @@
+/// <summary>
+/// 单击购买按钮
+/// </summary>
+/// <param name="context"></param>
+public void Buy(HttpContext context)
+{
+    string id = HttpContext.Current.Request["id"];	//获取传递过来的id
+    Class2 sh = new Class2();
+    sh.godataset(id); 								//购买产品
+    context.Response.Write("{\"status\":\"0\"}");
+}

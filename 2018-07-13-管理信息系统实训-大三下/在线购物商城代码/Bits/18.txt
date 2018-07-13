@@ -1,0 +1,24 @@
+public void godataset(string id)   				//向Hashtable表中添加购商品的id和数量
+{
+    if (Session["bus"] == null)
+    {
+        Hashtable ht = new Hashtable(); 
+        ht.Add(id, 1); 								//添加产品
+        Session["bus"] = ht; 						//将产品保存到Session中
+        dafill(ht); 								//设置购物车
+    }
+    else
+    {
+        Hashtable ht = (Hashtable)Session["bus"];	//获取产品购物车
+        if (ht[id] == null)
+        {
+            ht[id] = 1; 							//数量为一
+        }
+        else
+        {
+            ht[id] = (int)ht[id] + 1; 				//数量加一
+        }
+        Session["bus"] = ht;
+        dafill(ht);
+    }
+}

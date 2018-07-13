@@ -1,0 +1,22 @@
+ //加
+function add(a, id) {
+    var prev = $(a).prev('font'); 								//增加数量
+    prev.html(parseInt(prev.html()) + 1); 						//增加钱数
+    var price = parseFloat($(a).parent().prev('div').html());	//单价
+    var size = parseInt(prev.html());							//个数
+    var amount = price * size;
+    $(a).parent().next('div').html('小计 ' + amount + ' （元）');
+    allAmount += price;
+    $('#allamount').html('总价：￥' + allAmount);
+    var pd = { "t": "UpdateNum", "id": id, "type": "1" };		//调用后台方法
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

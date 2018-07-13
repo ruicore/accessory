@@ -1,0 +1,27 @@
+protected void Button1_Click(object sender, EventArgs e)
+{
+    string goodsname = TextBox1.Text.ToString();				//设置商品名称
+    string introduce = TextBox4.Text.ToString();				//设置商品描述
+    double price = Convert.ToDouble(TextBox3.Text);			//设置商品原价
+    double nowprice = Convert.ToDouble(TextBox5.Text);			//设置商品现在价格
+    string picture = TextBox2.Text.ToString();				//设置商品图片
+    int newgoods;											//标识是否为新上架商品
+    if (RadioButtonList1.SelectedIndex == 0)
+    {
+        newgoods = 0;
+    }
+    else
+    {
+        newgoods = 1;
+    }
+    strcon.Open();											//打开数据库连接
+    //定义更新商品信息的SQL语句
+    string ingo = "update tb_goods set goodsname='" + goodsname + "',introduce='" + introduce 
++ "',price='" + price + "',nowprice='" + nowprice + "',picture='" + picture + "',newgoods='" 
++ newgoods + "',intime='" + System.DateTime.Now + "' where id="+mes;
+    SqlCommand goodsin = new SqlCommand(ingo, strcon);			//生成命令执行对象
+    goodsin.ExecuteNonQuery();								//执行商品更新操作
+    strcon.Close();											//关闭数据库连接
+    Response.Write("<script language='javascript'>alert('修改成功！
+');location='goodsmanage.aspx'</script>");
+}

@@ -1,0 +1,38 @@
+<body>
+    <!--显示搜索-->
+    <div style="width:425px;margin:20px auto;height:50px;">
+<!--显示搜索文本框-->
+        <input id="strSelect" type="text" style="height: 40px; width: 320px; float: left; 
+font-size: 15px;" placeholder="请输入搜索信息：例如“电视，彩电，洗衣机”" />
+        <input type="button" value="搜索" style="float: left; height: 46px; width: 100px; 
+border: none; font-size: 18px; color: white; background-color: rgb(255, 106, 0)" 
+onclick="Clickselect()" />
+    </div>
+    <div id="goods" style="margin-top:20px; overflow:auto; height:600px;clear:both;">
+        <!--显示搜索到的内容-->
+    </div>
+     <!--单击产品的时候显示出来的产品详细信息-->
+    <div id="cen" style="margin-left:150px; 
+position:absolute;background-color:#e5e5e5;left:190px;top:150px;border:1px solid 
+#cccccc;width:300px;height:400px;">
+        <input type="hidden" id="proid" />
+<!—关闭按钮-->
+        <div 
+style="float:right;cursor:pointer;margin-top:10px;margin-right:10px;font-size:12px;" 
+onclick="Close()">关闭</div>
+        <div style="width:200px;margin:auto;margin-top:20px;">
+        <img src="" id="proImg" style="height:200px;width:200px;margin:auto;" /></div>
+<!—产品内容-->
+        <div style="line-height:40px;margin-left:50px;">
+            <div>产品名称：<font id="proName"></font></div>
+            <div>原价：<font id="proPrice" 
+style="text-decoration:line-through;"></font></div>
+            <div>现价：<font id="pronowPrioce"></font></div>
+            <div id="des"></div>
+<!—购买按钮-->
+            <div><input type="button" 
+style="width:100px;margin-left:40px;height:30px;background-color:#ff6a00;border:none
+;color:#fff;" value="购买" onclick="buyCen()" /></div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,11 @@
+protected void dsdatabind()								//绑定GridView1数据
+{
+    strcon.Open();											//打开连接
+    string newque = "SELECT * FROM tb_member";				//查询所有会员
+    SqlDataAdapter datap = new SqlDataAdapter(newque, strcon);
+    datap.Fill(dset);
+    GridView2.DataSource = dset; 							//设置数据源
+    this.GridView2.DataKeyNames = new string[] { "id" };	//设置主键
+    GridView2.DataBind();
+    strcon.Close();
+}

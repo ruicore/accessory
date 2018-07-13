@@ -1,0 +1,27 @@
+/// <summary>
+/// 修改购物车数量
+/// </summary>
+/// <param name="context"></param>
+/// <returns></returns>
+public void UpdateNum(HttpContext context)
+{
+    Class2 sh = new Class2();
+    string id = HttpContext.Current.Request["id"];		//产品id
+    string type = HttpContext.Current.Request["type"];	//修改类型，有可能加，有可能减
+    if (HttpContext.Current.Session["wo"] == null)
+    {
+        context.Response.Write("{\"status\":\"-1\"}");	//请登录
+    }
+    else
+    {
+        if (type == "1")
+        {
+            sh.godataset(id); 							//增加一个
+        }
+        else
+        {
+            sh.godatasetjs(id); 						//减少一个
+        }
+        context.Response.Write("{\"status\":\"0\"}");
+    }
+}

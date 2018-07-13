@@ -1,0 +1,42 @@
+function GetDetile() {
+            var pd = { "t": "GetOrderList" };			//向后台传递的参数
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        var dataobj = eval("(" + data.status + ")");//格式化数据
+                        $.each(dataobj.root, function (i, item) {
+                            var html = '<div 
+style="height:100px;clear:both;margin-left:50px;">' +
+                                       '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:20px;">
+1.</div>' +  '     <div style="float:left; margin-left:10px;"><img src="' + item.picture 
++ '" style="height:100px;width:100px;" /></div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+' + item.goodsName + '</div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+单价：￥' + item.nowPrice + '</div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+数量：' + item.number + '</div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+' + item.pay + '</div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+' + item.OrderDate + '</div>' + '     <div 
+style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">
+' + (item.enforce == '0' ? "未执行" : "已执行") + '</div>' + ' </div>';
+                            $('#goods').append(html);		//把数据设置到标签中
+                        });
+                    }
+                    else {
+                        $('#goods').html('<div 
+style="font-size:28px;font-weight:900;text-align:center;margin-top:200px;">没有购买过
+任何东西</div>');
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            GetDetile();
+        });
+        //根据产品类型获取产品
+        function GetDetile() {
+            var pd = { "t": "GetOrderList" };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        var dataobj = eval("(" + data.status + ")");
+                        $.each(dataobj.root, function (i, item) {
+                            var html = '<div style="height:100px;clear:both;margin-left:50px;">' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:20px;">1.</div>' +
+                                       '     <div style="float:left; margin-left:10px;"><img src="' + item.picture + '" style="height:100px;width:100px;" /></div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">' + item.goodsName + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">单价：￥' + item.nowPrice + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">数量：' + item.number + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">' + item.pay + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">' + item.OrderDate + '</div>' +
+                                       '     <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">' + (item.enforce == '0' ? "未执行" : "已执行") + '</div>' +
+                                       ' </div>';
+                            $('#goods').append(html);
+                        });
+                    }
+                    else {
+                        $('#goods').html('<div style="font-size:28px;font-weight:900;text-align:center;margin-top:200px;">没有购买过任何东西</div>');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="goods" style="margin-top:20px; overflow:auto; height:670px;">
+        <!--<div style="height:100px;clear:both;margin-left:50px;">
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:20px;">1.</div>
+            <div style="float:left; margin-left:10px;"><img src="image/父亲节1.jpg" style="height:100px;width:100px;" /></div>
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">超级变形洗衣机</div>
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">单价：￥100</div>
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">数量：</div>
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">支付方式</div>
+            <div style="float:left;line-height:100px;font-size:12px;color:#808080;margin-left:40px;">购买时间</div>
+        </div>-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+{
+    strcon.Open();								//打开数据库连接
+    //获取要删除的会员编号	
+    string id = this.GridView2.DataKeys[e.RowIndex].Value.ToString();
+    //定义执行删除指定会员的SQL语句
+    SqlCommand comm = new SqlCommand("delete from tb_member where id=" + id, strcon);
+    comm.ExecuteNonQuery();						//执行删除会员操作
+    strcon.Close();
+    dsdatabind();								//关闭数据库连接
+}

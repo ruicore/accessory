@@ -1,0 +1,8 @@
+/// <summary>
+/// 设置查询内容
+/// </summary>
+public void SetSelectStr(HttpContext context)
+{
+HttpContext.Current.Session["str"] = HttpContext.Current.Request["str"];//设置查询内容
+    context.Response.Write("{\"status\":\"0\"}");
+}

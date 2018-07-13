@@ -1,0 +1,11 @@
+protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+{
+    strcon.Open();  								//打开数据库连接
+    //获取要删除的商品编号
+    string id = this.GridView1.DataKeys[e.RowIndex].Value.ToString();
+    //定义执行删除指定商品的SQL语句
+    SqlCommand comm = new SqlCommand( "delete from tb_goods where id="+id, strcon);
+    comm.ExecuteNonQuery();						//执行删除商品操作
+    dsdatabind();
+    strcon.Close();								//关闭数据库连接
+}

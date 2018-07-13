@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function Reg() {
+            var userName = $('#userName').val();
+            var trueName = $('#trueName').val();
+            var pwd = $('#pwd').val();
+            var pwd2 = $('#pwd2').val();
+            var city = $('#city').val();
+            var lx = $('#lx').val();
+            var yb = $('#yb').val();
+            var number = $('#number').val();
+            var cardType = $('#cardType').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+
+            if (pwd != pwd2) {
+                alert('两次输入的密码不同');
+                return;
+            }
+            if (userName == "")
+            {
+                alert('用户名不能为空');
+                return;
+            }
+            if (trueName == "") {
+                alert('真实姓名不能为空');
+                return;
+            }
+            if (pwd == "") {
+                alert('密码不能为空');
+                return;
+            }
+            if (city == "") {
+                alert('所在城市不能为空');
+                return;
+            }
+            if (lx == "") {
+                alert('联系方式不能为空');
+                return;
+            }
+            if (yb == "") {
+                alert('邮政编码不能为空');
+                return;
+            }
+            if (number == "") {
+                alert('证件号码不能为空');
+                return;
+            }
+            if (cardType == "") {
+                alert('证件类型不能为空');
+                return;
+            }
+            if (email == "") {
+                alert('电子信箱不能为空');
+                return;
+            }
+            if (phone == "") {
+                alert('联系电话不能为空');
+                return;
+            }
+            var pd = { "t": "Reg", "userName": userName, "trueName": trueName, "pwd": pwd, "city": city, "lx": lx, "yb": yb, "number": number, "cardType": cardType, "email": email, "phone": phone };
+            $.ajax({
+                type: "post",
+                url: "tools/Handler.ashx",
+                data: pd,
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != "-1") {
+                        window.parent.LoginSet();
+                        var close = $('#CloseCover', parent.document);
+                        $('#coverDiv', parent.document).remove();
+                        $(close).parent().parent().remove();
+                    }
+                    else {
+                        alert("用户名重复");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .btn1 {
+        width:220px; height:30px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:#5ea7db; height:60px; width:100%;">
+        <img src="logo.png" style="margin-left:190px; margin-top:3px;" />
+    </div>
+    <div style="margin:auto;width:500px;">
+        <div style="height:40px;margin-top:15px;text-align:center;">用户名：<input id="userName" type="text" style="margin-left:17px;" class="btn1" /></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">真实姓名：<input id="trueName" type="text" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">密 码：<input id="pwd" type="password" style="margin-left:25px;" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">确认密码：<input id="pwd2" type="password" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">所在城市：<input id="city" type="text" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">联系方式：<input id="lx" type="text" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">邮政编码：<input id="yb" type="text" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">证件号码：<input id="number" type="text" class="btn1"/></div>
+        <div style="height:30px;text-align:center; margin-top:5px; margin-left:-58px;">证件类型：<input id="cardType" type="radio" name="cardType" value="身份证" />身份证<input type="radio" name="cardType" value="学生证" />学生证<input type="radio" name="cardType" value="其他" />其他</div>
+        <div style="height:40px;text-align:center; margin-top:0px;">电子信箱：<input id="email" type="text" class="btn1"/></div>
+        <div style="height:40px;text-align:center; margin-top:5px;">联系电话：<input id="phone" type="text" class="btn1"/></div>
+        <div style="height:40px; text-align:center; margin-top:5px;">
+            <input type="button" value="确认" onclick="Reg()" style="width:225px; height:40px; background-color:#5ea7db; color:#fff; border:none; margin-left:80px;" />
+        </div>
+    </div>
+</body>
+</html>

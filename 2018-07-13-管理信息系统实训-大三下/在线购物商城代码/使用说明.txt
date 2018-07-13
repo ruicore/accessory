@@ -1,0 +1,1 @@
+使用前请修改./Project/B2C/web.config 中的数据库连接说明

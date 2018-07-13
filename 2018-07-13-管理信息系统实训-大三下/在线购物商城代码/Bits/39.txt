@@ -1,0 +1,12 @@
+protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs 
+e)
+{
+    strcon.Open();
+    string orderid = GridView1.DataKeys[e.NewSelectedIndex].Value.ToString();
+    //执行订单的sql语句
+    SqlCommand comm = new SqlCommand("update tb_order set enforce=1 where orderid=" + 
+orderid, strcon);
+    comm.ExecuteNonQuery();									//执行sql语句
+    dsdatabind();											//绑定控件
+    strcon.Close();											//关闭数据库链接
+}

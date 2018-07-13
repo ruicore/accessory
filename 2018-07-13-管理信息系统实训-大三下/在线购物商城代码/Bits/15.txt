@@ -1,0 +1,25 @@
+//查看
+function look(a) {
+    $('#proid').val(a); 										//设置值到标签中
+    $('#cen').show();											//显示这个标签
+    var pd = { "t": "GetGoodDetile", "id": a };					//设置传递到后台的参数
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                var dataobj = eval("(" + data.status + ")");		//格式化查询到的内容
+                $.each(dataobj.root, function (i, item) {
+                    $('#proName').html(item.goodsName); 			//设置产品名称
+                    $('#proPrice').html(item.price); 			//设置产品价格
+                    $('#pronowPrioce').html(item.nowPrice); 		//设置产品最新价格
+                    $('#proImg').attr('src', item.picture); 		//设置属性
+                });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

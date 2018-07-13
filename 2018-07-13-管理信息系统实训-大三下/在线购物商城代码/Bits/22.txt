@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" 
+xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+  <NewDataSet>
+    <Table diffgr:id="Table1" msdata:rowOrder="0">
+      <ID>3</ID>
+      <typeID>1</typeID>
+      <goodsName>海尔节能冰箱</goodsName>
+      <introduce>海尔节能冰箱经济型!!!</introduce>
+      <price>1600</price>
+      <nowPrice>1600</nowPrice>
+      <picture>goodimg/1.jpg</picture>
+      <INTime>2006-03-29T12:41:44+08:00</INTime>
+      <newGoods>1</newGoods>
+      <count />
+    </Table>
+  </NewDataSet>
+</diffgr:diffgram>

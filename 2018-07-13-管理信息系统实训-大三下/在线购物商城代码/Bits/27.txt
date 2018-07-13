@@ -1,0 +1,27 @@
+//减
+function reduce(a, id) {
+    //减少数量
+    var next = $(a).next('font');  						//获取此标记的下一个font标记
+    
+    if (next.html() != "0") {							//判断有没有下一个标记
+        next.html(parseInt(next.html()) - 1);
+    }
+    //减少钱数
+    var price = parseFloat($(a).parent().prev('div').html());	//单价
+    var size = parseInt(next.html());							//个数
+    var amount = price * size;									//计算小计
+    $(a).parent().next('div').html('小计 ' + amount + ' （元）');//设置小计
+    allAmount -= price;
+    $('#allamount').html('总价：￥' + allAmount);
+    var pd = { "t": "UpdateNum", "id": id, "type": "2" };		//传递到后台
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

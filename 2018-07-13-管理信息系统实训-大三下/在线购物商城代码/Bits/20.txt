@@ -1,0 +1,4 @@
+<div style="float: left; margin-left: 70px;">
+    <div class="menu" onclick="goodShow(0)">新品上架</div>
+    <div class="menu" onclick="goodShow(1)" style="margin-left: 40px;">其他商品</div>
+</div>

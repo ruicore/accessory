@@ -1,0 +1,39 @@
+/// <summary>
+/// 添加地址
+/// </summary>
+/// <param name="context"></param>
+public void AddAdr(HttpContext context)
+{
+    string adr = HttpContext.Current.Request["adr"];				//收货人地址
+    string Des = HttpContext.Current.Request["Des"];				//详细信息
+    string phone = HttpContext.Current.Request["phone"];			//电话
+    string mobil = HttpContext.Current.Request["mobil"];			//手机电话
+    string email = HttpContext.Current.Request["email"];			//邮箱
+    string bieming = HttpContext.Current.Request["bieming"];		//备注
+    string Names = HttpContext.Current.Request["Names"];			//姓名
+    string userName = HttpContext.Current.Session["wo"].ToString();	//登录人
+    string sql = "delete Adr where UserName='" + userName + "'; insert into 
+Adr(id,adr,Des,phone,mobil,email,bieming,Names,UserName) values('" + 
+Guid.NewGuid().ToString() + "','" + adr + "','" + Des + "','" + phone + "','" + mobil 
++ "','" + email + "','" + bieming + "','" + Names + "','" + userName + "')";
+    strcon.Close();													//关闭链接
+    strcon.Open();													//打开链接
+    SqlCommand comm = strcon.CreateCommand();
+    comm.CommandText = sql; 										//设置sql语句
+    SqlTransaction myTransaction = strcon.BeginTransaction(); 		//开始一个事务
+    comm.Transaction = myTransaction;
+    try
+    {
+        comm.ExecuteNonQuery();										//执行sql语句
+        myTransaction.Commit();  									//提交事务
+    }
+    catch
+    {
+        myTransaction.Rollback();  									//回滚事务
+    }
+    finally
+    {
+        strcon.Close();
+    }
+    context.Response.Write("{\"status\":\"0\"}");
+}

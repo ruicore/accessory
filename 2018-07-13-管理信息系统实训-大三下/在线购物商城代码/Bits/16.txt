@@ -1,0 +1,18 @@
+//购买
+function buy(a) {
+    var id = a;
+    var pd = { "t": "Buy", "id": id };			//设置传递到后台的参数
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                alert('已经加入购物车'); 			//弹出提示
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

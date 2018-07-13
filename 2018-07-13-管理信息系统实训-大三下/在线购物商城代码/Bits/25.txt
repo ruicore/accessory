@@ -1,0 +1,43 @@
+//获取购物车
+function GetShopCar() {
+    var pd = { "t": "GetshopCar" };							//向后台传递参数
+    $.ajax({
+        type: "post",
+        url: "tools/Handler.ashx",
+        data: pd,
+        dataType: "json",
+        success: function (data) {
+            if (data.status != "-1") {
+                var dataobj = eval("(" + data.status + ")");	//格式化传递过来的数据
+                $.each(dataobj.root, function (i, item) {
+                    //计算金额
+                    var amount = parseFloat(item.nowPrice) * parseInt(item.count);
+                    var html = '<div id="car' + item.ID + '" style="border-bottom:1px solid 
+#d1d1d1;height:50px;background-color:rgb(243, 243, 243)">' +
+                                       ' <div class="row50" style="width:100px;"><input 
+class="ckClass" value="' + item.ID + '" type="checkbox" /></div>' +
+                                       ' <div class="row50" 
+style="width:400px;line-height:26px;">' + item.goodsName + '</div>' +
+                                       ' <div class="row50" style="width:100px;">' + 
+item.nowPrice + '</div>' +
+                                       ' <div class="row50" style="width:150px;"><font 
+style="cursor:pointer;" onclick="reduce(this,\'' + item.ID + '\')">-</font><font 
+style="margin-left:20px;display">' + item.count + '</font><font 
+style="margin-left:20px;cursor:pointer;" onclick="add(this,\'' + item.ID + 
+'\')">+</font></div>' +
+                                       ' <div class="row50" 
+style="width:130px;font-size:12px;" class="amount">小计 ' + amount + ' （元）</div>' +
+                                       ' <div class="row50" 
+style="width:100px;cursor:pointer;" onclick="DeleteOne(\'' + item.ID + '\')">删除
+</div>' +
+                           ' </div>';
+                    allAmount += amount;
+                    $('#car').append(html); 					//把内容添加到浏览器中
+                $('#allamount').html('总价：￥' + allAmount);//把计算出来的总价放到标签中
+                });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+}

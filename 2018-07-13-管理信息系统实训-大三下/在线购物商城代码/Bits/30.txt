@@ -1,0 +1,9 @@
+//ȫѡ
+function AllCheck(a) {
+    if ($(a).is(':checked')) {
+        $('.ckClass').prop("checked", true);
+    }
+    else {
+        $('.ckClass').removeAttr('checked');
+    }
+}

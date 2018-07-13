@@ -1,0 +1,5 @@
+//单击特价商品和新品上架
+function goodShow(a) {
+    //0为新品上架，1为特价商品
+    EjectIdent('GoodShow.html?id=' + a, '', '1000', '700');
+}

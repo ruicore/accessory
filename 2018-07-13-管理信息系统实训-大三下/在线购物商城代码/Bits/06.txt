@@ -1,0 +1,21 @@
+/// <summary>
+/// 查询类型
+/// </summary>
+/// <param name="context"></param>
+public void SelectType(HttpContext context)
+{
+    string sql = "select tb_subtype.*,tb_supertype.TypeName as ClassName from 
+tb_subtype,tb_supertype where tb_subtype.superType=tb_supertype.ID";//sql语句
+    DataSet dssuper = DataBase.ReDataSet(sql); 			//执行sql语句
+    DataTable dt = dssuper.Tables[0]; 					//提取查询出来的表
+    if (dt.Rows.Count > 0)
+    {
+        string json = f.ToJson(dt); 					//把表格式化成json格式的字符串
+        json = json.Replace("\"", "\\\"");				//替换非法字符
+        context.Response.Write("{\"status\":\"" + json + "\"}");
+    }
+    else
+    {
+        context.Response.Write("{\"status\":\"-1\"}");
+    }
+}

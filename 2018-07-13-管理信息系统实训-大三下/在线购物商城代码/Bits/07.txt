@@ -1,0 +1,7 @@
+<div style="width: 150px; height: 300px; float: left;">
+   <div id="gg" style="border: 1px solid rgb(194, 194, 194); height: 240px; width: 140px; 
+border-radius: 10px; margin-left: 5px; margin-top: 20px;">
+         <div style="margin-top: 15px; margin-left: 10px; cursor: pointer;" 
+onclick="Clickph()"><font style="color: rgb(255, 106, 0)">【公告】</font> 销售排名</div>
+   </div>
+</div>
